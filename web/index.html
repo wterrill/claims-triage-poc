@@ -136,6 +136,10 @@ pre{white-space:pre-wrap;word-break:break-word;font-size:11px;background:var(--b
   <section id="tab-about" class="hidden">
     <div class="card">
       <h2>How it works</h2>
+      <a href="architecture.svg" target="_blank" rel="noopener" title="Open full size">
+        <img src="architecture.svg" alt="Architecture: the web console and core systems call API Gateway; a Lambda orchestrator uses Textract for FNOL forms, calls the narrative, fraud and severity models on SageMaker serverless endpoints, and records each decision in DynamoDB"
+             style="display:block;width:100%;height:auto;margin:4px 0 16px;border:1px solid var(--line);border-radius:10px;background:#fff">
+      </a>
       <ol>
         <li><b>Intake</b> – A claim arrives either as JSON through the API or as an FNOL form (PDF or scanned image). Forms are read by <b>Amazon Textract</b>.</li>
         <li><b>Model 3 · Narrative analysis</b> – A text classifier reads the loss description and adjuster shorthand. It confirms the loss type and flags injury, attorney involvement and possible total loss. These flags fill in anything the form left blank.</li>
