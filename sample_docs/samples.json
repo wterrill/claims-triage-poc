@@ -1,0 +1,154 @@
+[
+ {
+  "id": "A01",
+  "title": "Parking-lot fender bender",
+  "line": "Personal Auto",
+  "expected_route": "FAST_TRACK",
+  "pdf": "fnol/A01_parking_lot_fender_bender.pdf",
+  "json": "claims/A01.json"
+ },
+ {
+  "id": "A02",
+  "title": "Rear-ended at a light, neck injury, attorney",
+  "line": "Personal Auto",
+  "expected_route": "COMPLEX_SENIOR_ADJUSTER",
+  "pdf": "fnol/A02_rear_ended_at_a_light_neck_injury_attorn.pdf",
+  "json": "claims/A02.json"
+ },
+ {
+  "id": "A03",
+  "title": "Vehicle stolen 3 weeks after policy bound",
+  "line": "Personal Auto",
+  "expected_route": "SIU_REFERRAL",
+  "pdf": "fnol/A03_vehicle_stolen_3_weeks_after_policy_boun.pdf",
+  "json": "claims/A03.json"
+ },
+ {
+  "id": "A03-SCAN",
+  "title": "Vehicle stolen 3 weeks after policy bound (faxed scan)",
+  "line": "Personal Auto",
+  "expected_route": "SIU_REFERRAL",
+  "pdf": "fnol/SCAN_A03_vehicle_stolen_3_weeks_after_policy_boun.pdf",
+  "json": null
+ },
+ {
+  "id": "A04",
+  "title": "Hail damage, neighbors also filing",
+  "line": "Personal Auto",
+  "expected_route": "FAST_TRACK",
+  "pdf": "fnol/A04_hail_damage_neighbors_also_filing.pdf",
+  "json": "claims/A04.json"
+ },
+ {
+  "id": "A05",
+  "title": "Keyed car, two slashed tires",
+  "line": "Personal Auto",
+  "expected_route": "FAST_TRACK",
+  "pdf": "fnol/A05_keyed_car_two_slashed_tires.pdf",
+  "json": "claims/A05.json"
+ },
+ {
+  "id": "A06",
+  "title": "Deer strike, likely total loss",
+  "line": "Personal Auto",
+  "expected_route": "STANDARD_ADJUSTER",
+  "pdf": "fnol/A06_deer_strike_likely_total_loss.pdf",
+  "json": "claims/A06.json"
+ },
+ {
+  "id": "A07",
+  "title": "Late-night single-car crash, friend driving",
+  "line": "Personal Auto",
+  "expected_route": "SIU_REFERRAL",
+  "pdf": "fnol/A07_late_night_single_car_crash_friend_drivi.pdf",
+  "json": "claims/A07.json"
+ },
+ {
+  "id": "H01",
+  "title": "Washing machine supply line burst",
+  "line": "Homeowners",
+  "expected_route": "STANDARD_ADJUSTER",
+  "pdf": "fnol/H01_washing_machine_supply_line_burst.pdf",
+  "json": "claims/H01.json"
+ },
+ {
+  "id": "H01-SCAN",
+  "title": "Washing machine supply line burst (faxed scan)",
+  "line": "Homeowners",
+  "expected_route": "STANDARD_ADJUSTER",
+  "pdf": "fnol/SCAN_H01_washing_machine_supply_line_burst.pdf",
+  "json": null
+ },
+ {
+  "id": "H02",
+  "title": "Kitchen fire, family displaced",
+  "line": "Homeowners",
+  "expected_route": "COMPLEX_SENIOR_ADJUSTER",
+  "pdf": "fnol/H02_kitchen_fire_family_displaced.pdf",
+  "json": "claims/H02.json"
+ },
+ {
+  "id": "H03",
+  "title": "Wind damage to roof after storm",
+  "line": "Homeowners",
+  "expected_route": "STANDARD_ADJUSTER",
+  "pdf": "fnol/H03_wind_damage_to_roof_after_storm.pdf",
+  "json": "claims/H03.json"
+ },
+ {
+  "id": "H04",
+  "title": "Burglary right after coverage increase",
+  "line": "Homeowners",
+  "expected_route": "SIU_REFERRAL",
+  "pdf": "fnol/H04_burglary_right_after_coverage_increase.pdf",
+  "json": "claims/H04.json"
+ },
+ {
+  "id": "H05",
+  "title": "Delivery driver slipped on icy walkway, attorney",
+  "line": "Homeowners",
+  "expected_route": "COMPLEX_SENIOR_ADJUSTER",
+  "pdf": "fnol/H05_delivery_driver_slipped_on_icy_walkway_a.pdf",
+  "json": "claims/H05.json"
+ },
+ {
+  "id": "H06",
+  "title": "Sump pump failure, finished basement",
+  "line": "Homeowners",
+  "expected_route": "STANDARD_ADJUSTER",
+  "pdf": "fnol/H06_sump_pump_failure_finished_basement.pdf",
+  "json": "claims/H06.json"
+ },
+ {
+  "id": "W01",
+  "title": "Lifting strain, reported same day",
+  "line": "Workers' Compensation",
+  "expected_route": "STANDARD_ADJUSTER",
+  "pdf": "fnol/W01_lifting_strain_reported_same_day.pdf",
+  "json": "claims/W01.json"
+ },
+ {
+  "id": "W02",
+  "title": "Hand caught in conveyor",
+  "line": "Workers' Compensation",
+  "expected_route": "STANDARD_ADJUSTER",
+  "pdf": "fnol/W02_hand_caught_in_conveyor.pdf",
+  "json": "claims/W02.json"
+ },
+ {
+  "id": "W03",
+  "title": "Ladder fall, shoulder surgery, attorney",
+  "line": "Workers' Compensation",
+  "expected_route": "COMPLEX_SENIOR_ADJUSTER",
+  "pdf": "fnol/W03_ladder_fall_shoulder_surgery_attorney.pdf",
+  "json": "claims/W03.json"
+ },
+ {
+  "id": "W04",
+  "title": "Repetitive strain reported weeks later",
+  "line": "Workers' Compensation",
+  "expected_route": "STANDARD_ADJUSTER",
+  "pdf": "fnol/W04_repetitive_strain_reported_weeks_later.pdf",
+  "json": "claims/W04.json"
+ }
+]

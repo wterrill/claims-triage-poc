@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700102",
+  "policy_number": "PA4415838",
+  "line_of_business": "auto",
+  "loss_type": "theft",
+  "insured_name": "Derek Voss",
+  "insured_age": 29,
+  "loss_date": "2026-06-21",
+  "loss_time": "02:30",
+  "report_date": "2026-07-19",
+  "policy_effective_date": "2026-05-30",
+  "loss_location": {
+    "city": "Rockford",
+    "state": "IL"
+  },
+  "estimated_loss_amount": 41000,
+  "deductible": 500,
+  "annual_premium": 1480,
+  "coverage_limit": 50000,
+  "prior_claims_3yr": 3,
+  "asset_year": 2016,
+  "police_report_filed": false,
+  "witnesses": false,
+  "injuries_reported": false,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": true,
+  "description": "Insd reports vehicle stolen from street overnight. Insd could not recall exact time of loss and story changed on second call. No police report filed, insd says police would not come out. Recently added comprehensive coverage. Insd requesting quick cash settlement, reluctant to provide purchase receipts for aftermarket parts."
+}

@@ -1,0 +1,29 @@
+{
+  "claim_number": "CLM-2026-700115",
+  "policy_number": "WC4518785",
+  "line_of_business": "workers_comp",
+  "loss_type": "workplace_injury",
+  "insured_name": "Riverbend Construction",
+  "insured_age": 58,
+  "loss_date": "2026-03-14",
+  "loss_time": "08:40",
+  "report_date": "2026-03-20",
+  "policy_effective_date": "2012-01-01",
+  "loss_location": {
+    "city": "Akron",
+    "state": "OH"
+  },
+  "estimated_loss_amount": 60000,
+  "deductible": 0,
+  "annual_premium": 91000,
+  "coverage_limit": 1000000,
+  "prior_claims_3yr": 3,
+  "asset_year": 2001,
+  "police_report_filed": false,
+  "witnesses": true,
+  "injuries_reported": true,
+  "attorney_involved": true,
+  "coverage_change_last_90_days": false,
+  "description": "EE fell from ladder approx 8 ft while framing, landed on right shoulder. Torn rotator cuff, surgery scheduled. EE has retained an attorney, LOR received.",
+  "claimant_name": "Tyrone Jackson"
+}

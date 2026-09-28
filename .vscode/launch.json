@@ -1,0 +1,80 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Local demo (console + API on :8080)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/local_demo.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Local harness (34 scenarios + batch)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/tests/local_harness.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Train fraud model",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/ml/src/fraud_model.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+        "--model-dir",
+        "build/model/fraud"
+      ]
+    },
+    {
+      "name": "Train severity model",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/ml/src/severity_model.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+        "--model-dir",
+        "build/model/severity"
+      ]
+    },
+    {
+      "name": "Train notes model",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/ml/src/notes_model.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+        "--model-dir",
+        "build/model/notes"
+      ]
+    },
+    {
+      "name": "Smoke test (live AWS API)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/smoke_test.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Current file",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700108",
+  "policy_number": "HO4463352",
+  "line_of_business": "homeowners",
+  "loss_type": "fire",
+  "insured_name": "Samuel Okafor",
+  "insured_age": 44,
+  "loss_date": "2026-07-19",
+  "loss_time": "18:45",
+  "report_date": "2026-07-19",
+  "policy_effective_date": "2014-02-01",
+  "loss_location": {
+    "city": "Lexington",
+    "state": "KY"
+  },
+  "estimated_loss_amount": 120000,
+  "deductible": 1000,
+  "annual_premium": 2400,
+  "coverage_limit": 500000,
+  "prior_claims_3yr": 0,
+  "asset_year": 1965,
+  "police_report_filed": false,
+  "witnesses": true,
+  "injuries_reported": false,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "Kitchen grease fire spread to cabinets and attic, FD responded. Heavy smoke damage throughout first and second floor. Structure deemed uninhabitable, family staying at hotel. ALE needed."
+}

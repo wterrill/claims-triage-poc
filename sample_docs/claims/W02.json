@@ -1,0 +1,29 @@
+{
+  "claim_number": "CLM-2026-700114",
+  "policy_number": "WC4510866",
+  "line_of_business": "workers_comp",
+  "loss_type": "workplace_injury",
+  "insured_name": "Midwest Packaging Co.",
+  "insured_age": 45,
+  "loss_date": "2026-07-08",
+  "loss_time": "14:15",
+  "report_date": "2026-07-09",
+  "policy_effective_date": "2016-01-01",
+  "loss_location": {
+    "city": "Fort Wayne",
+    "state": "IN"
+  },
+  "estimated_loss_amount": 9000,
+  "deductible": 0,
+  "annual_premium": 62000,
+  "coverage_limit": 1000000,
+  "prior_claims_3yr": 2,
+  "asset_year": 2012,
+  "police_report_filed": false,
+  "witnesses": true,
+  "injuries_reported": true,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "EE hand caught in conveyor roller, laceration to two fingers, taken to ER for stitches. Guard on roller was missing per supervisor. Off work 2 weeks.",
+  "claimant_name": "Olga Novak"
+}

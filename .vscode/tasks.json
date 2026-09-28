@@ -1,0 +1,61 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Setup: create .venv and install deps",
+      "type": "shell",
+      "command": "python3 -m venv .venv && .venv/bin/pip install -U pip && .venv/bin/pip install -r requirements-dev.txt -r infra/requirements.txt",
+      "problemMatcher": []
+    },
+    {
+      "label": "Train all 3 models (local)",
+      "type": "shell",
+      "command": "for m in fraud severity notes; do .venv/bin/python ml/src/${m}_model.py --model-dir build/model/$m || exit 1; done",
+      "problemMatcher": []
+    },
+    {
+      "label": "Test: local harness",
+      "type": "shell",
+      "command": ".venv/bin/python tests/local_harness.py",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run: local demo (http://localhost:8080)",
+      "type": "shell",
+      "command": ".venv/bin/python scripts/local_demo.py",
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "label": "CDK: synth",
+      "type": "shell",
+      "command": "source ../.venv/bin/activate && cdk synth --quiet",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}/infra"
+      }
+    },
+    {
+      "label": "AWS: deploy (us-east-2, local training)",
+      "type": "shell",
+      "command": "AWS_REGION=us-east-2 TRAINING=local ./deploy.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "AWS: smoke test",
+      "type": "shell",
+      "command": ".venv/bin/python scripts/smoke_test.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "AWS: destroy (us-east-2)",
+      "type": "shell",
+      "command": "AWS_REGION=us-east-2 ./destroy.sh",
+      "problemMatcher": []
+    }
+  ]
+}

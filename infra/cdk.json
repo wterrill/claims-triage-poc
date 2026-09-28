@@ -1,0 +1,9 @@
+{
+  "app": "python3 app.py",
+  "context": {
+    "endpoint_mode": "serverless",
+    "realtime_instance_type": "ml.t2.medium",
+    "keep_warm": true,
+    "endpoint_prefix": "claims-triage"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700105",
+  "policy_number": "PA4439595",
+  "line_of_business": "auto",
+  "loss_type": "collision",
+  "insured_name": "Tom Kowalski",
+  "insured_age": 57,
+  "loss_date": "2026-04-11",
+  "loss_time": "21:15",
+  "report_date": "2026-04-11",
+  "policy_effective_date": "2010-11-01",
+  "loss_location": {
+    "city": "Green Bay",
+    "state": "WI"
+  },
+  "estimated_loss_amount": 9800,
+  "deductible": 500,
+  "annual_premium": 1180,
+  "coverage_limit": 100000,
+  "prior_claims_3yr": 0,
+  "asset_year": 2012,
+  "police_report_filed": true,
+  "witnesses": false,
+  "injuries_reported": false,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "Deer ran into roadway on County Rd 32, insd struck deer and went into ditch. Front end and radiator destroyed, airbags deployed. Appraiser indicates vehicle is likely a total loss given age. Insd not injured."
+}

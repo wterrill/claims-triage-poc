@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700107",
+  "policy_number": "HO4455433",
+  "line_of_business": "homeowners",
+  "loss_type": "water_damage",
+  "insured_name": "Karen Whitaker",
+  "insured_age": 47,
+  "loss_date": "2026-08-09",
+  "loss_time": "09:20",
+  "report_date": "2026-08-09",
+  "policy_effective_date": "2017-04-12",
+  "loss_location": {
+    "city": "Carmel",
+    "state": "IN"
+  },
+  "estimated_loss_amount": 14500,
+  "deductible": 1000,
+  "annual_premium": 2050,
+  "coverage_limit": 350000,
+  "prior_claims_3yr": 0,
+  "asset_year": 1998,
+  "police_report_filed": false,
+  "witnesses": false,
+  "injuries_reported": false,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "Supply line to upstairs washing machine burst, water came through kitchen ceiling. Mitigation vendor dispatched, drying equipment in place. Kitchen cabinets and flooring affected."
+}

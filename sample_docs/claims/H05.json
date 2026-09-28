@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700111",
+  "policy_number": "HO4487109",
+  "line_of_business": "homeowners",
+  "loss_type": "liability_injury",
+  "insured_name": "Nancy Everett",
+  "insured_age": 72,
+  "loss_date": "2026-01-28",
+  "loss_time": "11:05",
+  "report_date": "2026-02-02",
+  "policy_effective_date": "2003-10-01",
+  "loss_location": {
+    "city": "Duluth",
+    "state": "MN"
+  },
+  "estimated_loss_amount": 35000,
+  "deductible": 1000,
+  "annual_premium": 1520,
+  "coverage_limit": 300000,
+  "prior_claims_3yr": 0,
+  "asset_year": 1972,
+  "police_report_filed": false,
+  "witnesses": true,
+  "injuries_reported": true,
+  "attorney_involved": true,
+  "coverage_change_last_90_days": false,
+  "description": "Clmt states she slipped on icy front walkway at insd residence while delivering package. Clmt fractured wrist, had surgery. Atty for clmt sent LOR and is requesting policy limits."
+}

@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700110",
+  "policy_number": "HO4479190",
+  "line_of_business": "homeowners",
+  "loss_type": "theft",
+  "insured_name": "Victor Harrington",
+  "insured_age": 41,
+  "loss_date": "2026-07-26",
+  "loss_time": "01:00",
+  "report_date": "2026-08-20",
+  "policy_effective_date": "2026-06-10",
+  "loss_location": {
+    "city": "Chattanooga",
+    "state": "TN"
+  },
+  "estimated_loss_amount": 48000,
+  "deductible": 500,
+  "annual_premium": 1650,
+  "coverage_limit": 250000,
+  "prior_claims_3yr": 2,
+  "asset_year": 2004,
+  "police_report_filed": false,
+  "witnesses": false,
+  "injuries_reported": false,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": true,
+  "description": "Insd reports break-in while family was out of town. Jewelry, watches, two laptops and TVs taken. Insd recently increased coverage limits and added jewelry rider. No police report filed. Insd reluctant to provide receipts."
+}

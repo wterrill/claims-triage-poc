@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.debugpy",
+    "charliermarsh.ruff",
+    "amazonwebservices.aws-toolkit-vscode",
+    "github.vscode-pull-request-github",
+    "github.vscode-github-actions",
+    "redhat.vscode-yaml"
+  ]
+}

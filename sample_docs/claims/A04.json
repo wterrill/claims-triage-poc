@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700103",
+  "policy_number": "PA4423757",
+  "line_of_business": "auto",
+  "loss_type": "weather",
+  "insured_name": "Grace Lindqvist",
+  "insured_age": 61,
+  "loss_date": "2026-05-18",
+  "loss_time": "16:10",
+  "report_date": "2026-05-19",
+  "policy_effective_date": "2015-09-10",
+  "loss_location": {
+    "city": "Davenport",
+    "state": "IA"
+  },
+  "estimated_loss_amount": 4200,
+  "deductible": 1000,
+  "annual_premium": 1210,
+  "coverage_limit": 100000,
+  "prior_claims_3yr": 1,
+  "asset_year": 2021,
+  "police_report_filed": false,
+  "witnesses": false,
+  "injuries_reported": false,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "Hail storm passed through area, insd reports dents across roof, hood and trunk lid. Several neighbors also filing claims. Awaiting PDR estimate."
+}

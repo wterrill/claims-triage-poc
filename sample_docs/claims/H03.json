@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700109",
+  "policy_number": "HO4471271",
+  "line_of_business": "homeowners",
+  "loss_type": "weather",
+  "insured_name": "Hector Morales",
+  "insured_age": 66,
+  "loss_date": "2026-06-03",
+  "loss_time": "20:30",
+  "report_date": "2026-06-04",
+  "policy_effective_date": "2008-05-20",
+  "loss_location": {
+    "city": "Columbia",
+    "state": "MO"
+  },
+  "estimated_loss_amount": 9600,
+  "deductible": 1000,
+  "annual_premium": 1780,
+  "coverage_limit": 350000,
+  "prior_claims_3yr": 1,
+  "asset_year": 1984,
+  "police_report_filed": false,
+  "witnesses": false,
+  "injuries_reported": false,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "High winds brought down large oak limb onto roof. Shingles and gutters damaged, some interior leaking in back bedroom. Roofer tarped roof."
+}

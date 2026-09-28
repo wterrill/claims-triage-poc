@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700100",
+  "policy_number": "PA4400000",
+  "line_of_business": "auto",
+  "loss_type": "collision",
+  "insured_name": "Linda Hughes",
+  "insured_age": 52,
+  "loss_date": "2026-08-14",
+  "loss_time": "12:40",
+  "report_date": "2026-08-14",
+  "policy_effective_date": "2019-03-01",
+  "loss_location": {
+    "city": "Naperville",
+    "state": "IL"
+  },
+  "estimated_loss_amount": 1850,
+  "deductible": 500,
+  "annual_premium": 1320,
+  "coverage_limit": 100000,
+  "prior_claims_3yr": 0,
+  "asset_year": 2020,
+  "police_report_filed": false,
+  "witnesses": true,
+  "injuries_reported": false,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "Insd backing out of space at grocery store lot, struck bollard. Damage to rear bumper and liftgate. No other vehicles involved. Photos received. Insd cooperative."
+}

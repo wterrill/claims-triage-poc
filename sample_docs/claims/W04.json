@@ -1,0 +1,29 @@
+{
+  "claim_number": "CLM-2026-700116",
+  "policy_number": "WC4526704",
+  "line_of_business": "workers_comp",
+  "loss_type": "workplace_injury",
+  "insured_name": "Lakeshore Fabrication",
+  "insured_age": 36,
+  "loss_date": "2026-06-01",
+  "loss_time": "15:00",
+  "report_date": "2026-07-06",
+  "policy_effective_date": "2018-01-01",
+  "loss_location": {
+    "city": "Kalamazoo",
+    "state": "MI"
+  },
+  "estimated_loss_amount": 7000,
+  "deductible": 0,
+  "annual_premium": 39000,
+  "coverage_limit": 1000000,
+  "prior_claims_3yr": 0,
+  "asset_year": 2020,
+  "police_report_filed": false,
+  "witnesses": false,
+  "injuries_reported": true,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "EE reports repetitive strain in both wrists from assembly line work over past months. Symptoms worsened, saw PCP who recommended splints and ergonomic review.",
+  "claimant_name": "Heather Bishop"
+}

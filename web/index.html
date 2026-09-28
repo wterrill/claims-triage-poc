@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claims Triage Assistant</title>
+<style>
+:root{
+  --bg:#f4f6f9;--panel:#ffffff;--ink:#1b2430;--muted:#5d6b7c;--line:#dde3ea;--brand:#1f3a5f;--brand-ink:#fff;
+  --accent:#2f6fb3;--chip:#eef2f7;
+  --siu:#b3261e;--siu-bg:#fdecea;--complex:#a15c00;--complex-bg:#fff3e0;--std:#2f6fb3;--std-bg:#e8f1fb;--fast:#1e7d4f;--fast-bg:#e6f5ec;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.08);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f141a;--panel:#171e26;--ink:#e6ebf1;--muted:#9aa7b6;--line:#2a3440;--brand:#16293f;--accent:#6aa5e6;--chip:#212b36;
+  --siu:#ff8a80;--siu-bg:#3a1a18;--complex:#ffb74d;--complex-bg:#3a2a12;--std:#90c2f5;--std-bg:#172b40;--fast:#6fd39c;--fast-bg:#15321f;
+  --shadow:none}}
+*{box-sizing:border-box}
+a{color:var(--accent)}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:var(--brand);color:var(--brand-ink);padding:14px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+header h1{font-size:18px;margin:0;font-weight:650;letter-spacing:.2px}
+header .sub{font-size:12px;opacity:.8}
+.badge{font-size:11px;border:1px solid rgba(255,255,255,.4);border-radius:10px;padding:2px 8px;margin-left:8px}
+.hdr-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.hdr-right input{width:220px;padding:6px 8px;border-radius:6px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff}
+.hdr-right input::placeholder{color:rgba(255,255,255,.6)}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;background:#999;margin-right:6px}
+.dot.ok{background:#4cd18a}.dot.warn{background:#ffc04d}.dot.bad{background:#ff6b6b}
+main{max-width:1200px;margin:0 auto;padding:16px}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:14px;overflow-x:auto}
+.tab{padding:9px 14px;border:none;background:none;color:var(--muted);cursor:pointer;font-size:14px;border-bottom:2px solid transparent;white-space:nowrap}
+.tab.on{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
+.grid{display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:16px}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;box-shadow:var(--shadow)}
+.card h2{font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:0 0 10px}
+.btn{background:var(--accent);color:#fff;border:none;border-radius:7px;padding:8px 14px;cursor:pointer;font-size:14px}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line)}
+.btn:disabled{opacity:.5;cursor:wait}
+.drop{border:2px dashed var(--line);border-radius:10px;padding:22px;text-align:center;color:var(--muted);cursor:pointer}
+.drop.hover{border-color:var(--accent);color:var(--ink)}
+.samples{max-height:420px;overflow:auto;margin-top:10px}
+.sample{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:7px 4px;border-bottom:1px solid var(--line)}
+.sample:last-child{border-bottom:none}
+.sample .t{font-size:13px}.sample .m{font-size:11px;color:var(--muted)}
+.sample button{font-size:12px;padding:4px 9px}
+textarea{width:100%;min-height:380px;font:12px/1.4 ui-monospace,Menlo,Consolas,monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px}
+select{padding:6px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+.route{border-radius:10px;padding:14px 16px;margin-bottom:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.route .name{font-size:20px;font-weight:700}
+.route .lbl{font-size:13px;opacity:.9}
+.r-SIU_REFERRAL{background:var(--siu-bg);color:var(--siu)}
+.r-COMPLEX_SENIOR_ADJUSTER{background:var(--complex-bg);color:var(--complex)}
+.r-STANDARD_ADJUSTER{background:var(--std-bg);color:var(--std)}
+.r-FAST_TRACK{background:var(--fast-bg);color:var(--fast)}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:1000px){.cols{grid-template-columns:1fr}}
+ul.plain{margin:0;padding-left:18px}ul.plain li{margin:3px 0}
+.big{font-size:26px;font-weight:700}
+.meter{height:10px;background:var(--chip);border-radius:6px;overflow:hidden;margin:8px 0}
+.meter>span{display:block;height:100%}
+.range{position:relative;height:26px;margin:10px 0 4px}
+.range .bar{position:absolute;top:10px;height:6px;background:var(--accent);opacity:.35;border-radius:4px}
+.range .pt{position:absolute;top:5px;width:3px;height:16px;background:var(--accent);border-radius:2px}
+.chip{display:inline-block;background:var(--chip);border-radius:10px;padding:2px 8px;margin:2px 4px 2px 0;font-size:12px}
+.chip.on{background:var(--complex-bg);color:var(--complex);font-weight:600}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:13px}
+.kv .k{color:var(--muted)}
+.muted{color:var(--muted)}
+.small{font-size:12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600;font-size:12px}
+tr.click{cursor:pointer}tr.click:hover{background:var(--chip)}
+.pill{font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600}
+.status{padding:10px 12px;border-radius:8px;background:var(--chip);margin-bottom:12px;font-size:13px}
+.status.err{background:var(--siu-bg);color:var(--siu)}
+details summary{cursor:pointer;color:var(--muted);font-size:12px;margin-top:10px}
+pre{white-space:pre-wrap;word-break:break-word;font-size:11px;background:var(--bg);padding:10px;border-radius:8px;max-height:400px;overflow:auto}
+.hidden{display:none}
+.empty{color:var(--muted);text-align:center;padding:60px 10px}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Claims Triage Assistant <span class="badge">POC · fictitious data</span></h1>
+    <div class="sub">3 SageMaker models · fraud risk · severity · narrative analysis</div>
+  </div>
+  <div class="hdr-right">
+    <span id="health" class="small"><span class="dot"></span>checking…</span>
+    <button class="btn ghost" id="warm" style="color:#fff;border-color:rgba(255,255,255,.4)">Wake models</button>
+    <input id="apikey" type="password" placeholder="API key" autocomplete="off">
+  </div>
+</header>
+<main>
+  <div class="tabs">
+    <button class="tab on" data-tab="doc">Upload FNOL document</button>
+    <button class="tab" data-tab="json">Submit claim (API)</button>
+    <button class="tab" data-tab="hist">History</button>
+    <button class="tab" data-tab="about">How it works</button>
+  </div>
+
+  <section id="tab-doc" class="grid">
+    <div class="card">
+      <h2>Upload a First Notice of Loss</h2>
+      <div id="drop" class="drop">Drop a PDF / image here or click to choose<input id="file" type="file" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff" hidden></div>
+      <h2 style="margin-top:16px">…or try a sample form</h2>
+      <div id="sampleDocs" class="samples"></div>
+    </div>
+    <div id="docResult"><div class="card empty">Upload a form or pick a sample. Textract reads it, three models score it, and the routing decision appears here.</div></div>
+  </section>
+
+  <section id="tab-json" class="grid hidden">
+    <div class="card">
+      <h2>Claim payload</h2>
+      <select id="sampleJson"><option value="">Load a sample…</option></select>
+      <div style="margin:8px 0"><textarea id="payload" spellcheck="false"></textarea></div>
+      <button class="btn" id="submitJson">POST /triage</button>
+      <p class="small muted">This is the same JSON a policy-admin or claims system would send. Edit any field and resubmit to see how the decision changes.</p>
+    </div>
+    <div id="jsonResult"><div class="card empty">Load a sample, tweak it, and submit.</div></div>
+  </section>
+
+  <section id="tab-hist" class="hidden">
+    <div class="card">
+      <h2>Recent triage decisions <button class="btn ghost small" id="refresh" style="float:right;padding:3px 10px">Refresh</button></h2>
+      <div id="histBody" class="muted">Loading…</div>
+    </div>
+    <div id="histResult" style="margin-top:14px"></div>
+  </section>
+
+  <section id="tab-about" class="hidden">
+    <div class="card">
+      <h2>How it works</h2>
+      <ol>
+        <li><b>Intake</b> – A claim arrives either as JSON through the API or as an FNOL form (PDF or scanned image). Forms are read by <b>Amazon Textract</b>.</li>
+        <li><b>Model 3 · Narrative analysis</b> – A text classifier reads the loss description and adjuster shorthand. It confirms the loss type and flags injury, attorney involvement and possible total loss. These flags fill in anything the form left blank.</li>
+        <li><b>Model 1 · Fraud risk</b> and <b>Model 2 · Severity</b> run in parallel on the enriched claim. Fraud returns a score plus the factors that drove it. Severity returns the expected cost, a P10–P90 range and a suggested reserve.</li>
+        <li><b>Routing rules</b> combine all three into one of four queues: SIU referral, complex / senior adjuster, standard adjuster, or fast-track. The rules are plain, editable thresholds, not a black box.</li>
+        <li>Every decision is stored with its full model output for audit.</li>
+      </ol>
+      <p class="muted small">All three models are hosted on Amazon SageMaker (serverless inference) and exposed through API Gateway with an API key. They were trained on 5,000 synthetic claims; no real policyholder data is used.</p>
+    </div>
+  </section>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money = v => "$" + Math.round(v).toLocaleString();
+const pct = v => Math.round(v * 100) + "%";
+const ROUTE_NAMES = {SIU_REFERRAL:"SIU referral", COMPLEX_SENIOR_ADJUSTER:"Complex / senior adjuster", STANDARD_ADJUSTER:"Standard adjuster", FAST_TRACK:"Fast-track"};
+let API = "", SAMPLES = [];
+
+function store(k, v){ try{ v === undefined ? (v = localStorage.getItem(k)) : localStorage.setItem(k, v); }catch(e){} return v; }
+$("#apikey").value = store("claimsApiKey") || "";
+$("#apikey").addEventListener("change", e => { store("claimsApiKey", e.target.value.trim()); checkHealth(); });
+
+async function api(path, opts = {}){
+  const r = await fetch(API.replace(/\/$/, "") + path, {...opts, headers:{"Content-Type":"application/json","x-api-key":$("#apikey").value.trim(), ...(opts.headers||{})}});
+  let body; try { body = await r.json(); } catch(e){ body = {error: r.statusText}; }
+  if (!r.ok) throw new Error((body && (body.error || body.message)) || ("HTTP " + r.status));
+  return body;
+}
+
+async function checkHealth(warm){
+  const el = $("#health");
+  el.innerHTML = '<span class="spinner"></span>' + (warm ? "waking models…" : "checking…");
+  try{
+    const h = await api("/health" + (warm ? "?warm=1" : ""));
+    const st = Object.entries(h.endpoints).filter(([k]) => !k.includes("latency"));
+    const ok = st.every(([, v]) => v === "InService");
+    el.innerHTML = `<span class="dot ${ok ? "ok" : "warn"}"></span>` + (ok ? "Models in service" : st.map(([k, v]) => k + ": " + v).join(" · "));
+  }catch(e){
+    el.innerHTML = `<span class="dot bad"></span>${esc($("#apikey").value ? e.message : "Enter API key")}`;
+  }
+}
+$("#warm").onclick = () => checkHealth(true);
+
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => {
+  document.querySelectorAll(".tab").forEach(x => x.classList.toggle("on", x === t));
+  ["doc","json","hist","about"].forEach(n => $("#tab-" + n).classList.toggle("hidden", n !== t.dataset.tab));
+  if (t.dataset.tab === "hist") loadHistory();
+});
+
+function status(target, msg, err){ $(target).innerHTML = `<div class="status ${err ? "err" : ""}">${err ? "" : '<span class="spinner"></span>'}${esc(msg)}</div>`; }
+
+// ---------------------------------------------------------------- documents
+async function triageFile(file, target = "#docResult", expected){
+  try{
+    status(target, `Uploading ${file.name}…`);
+    const up = await api("/documents", {method:"POST", body: JSON.stringify({filename: file.name, content_type: file.type || "application/pdf"})});
+    const put = await fetch(up.upload_url, {method:"PUT", headers:{"Content-Type": up.content_type}, body: file});
+    if (!put.ok) throw new Error("Upload to S3 failed (" + put.status + ")");
+    status(target, "Textract is reading the form, then 3 models score it…");
+    const res = await api(`/documents/${up.document_id}/triage`, {method:"POST"});
+    renderResult(target, res, expected);
+  }catch(e){ status(target, e.message, true); }
+}
+const drop = $("#drop");
+drop.onclick = () => $("#file").click();
+$("#file").onchange = e => e.target.files[0] && triageFile(e.target.files[0]);
+drop.ondragover = e => { e.preventDefault(); drop.classList.add("hover"); };
+drop.ondragleave = () => drop.classList.remove("hover");
+drop.ondrop = e => { e.preventDefault(); drop.classList.remove("hover"); e.dataTransfer.files[0] && triageFile(e.dataTransfer.files[0]); };
+
+async function runSample(i){
+  const s = SAMPLES[i];
+  const blob = await (await fetch(s.pdf)).blob();
+  triageFile(new File([blob], s.pdf.split("/").pop(), {type:"application/pdf"}), "#docResult", s.expected_route);
+}
+
+// ---------------------------------------------------------------- JSON
+$("#sampleJson").onchange = async e => {
+  const s = SAMPLES.find(x => x.json === e.target.value);
+  if (!s) return;
+  $("#payload").value = JSON.stringify(await (await fetch(s.json)).json(), null, 2);
+  $("#payload").dataset.expected = s.expected_route;
+};
+$("#submitJson").onclick = async () => {
+  let body;
+  try { body = JSON.parse($("#payload").value); } catch(e){ return status("#jsonResult", "Payload is not valid JSON: " + e.message, true); }
+  status("#jsonResult", "Scoring with 3 models…");
+  try { renderResult("#jsonResult", await api("/triage", {method:"POST", body: JSON.stringify(body)}), $("#payload").dataset.expected); }
+  catch(e){ status("#jsonResult", e.message, true); }
+};
+
+// ---------------------------------------------------------------- history
+async function loadHistory(){
+  $("#histBody").innerHTML = '<span class="spinner"></span>Loading…';
+  try{
+    const {claims} = await api("/claims?limit=50");
+    if (!claims.length) return $("#histBody").innerHTML = '<p class="muted">No decisions yet.</p>';
+    $("#histBody").innerHTML = `<div style="overflow-x:auto"><table><thead><tr><th>When</th><th>Claim</th><th>Insured</th><th>Source</th><th>Route</th><th>Fraud</th><th>Predicted cost</th></tr></thead><tbody>${
+      claims.map(c => `<tr class="click" data-id="${esc(c.triage_id)}"><td>${esc(new Date(c.created_at).toLocaleString())}</td><td>${esc(c.claim_number)}</td><td>${esc(c.insured_name)}</td><td>${esc(c.source)}</td><td><span class="pill r-${esc(c.route)}">${esc(ROUTE_NAMES[c.route] || c.route)}</span></td><td>${pct(c.fraud_score)}</td><td>${money(c.predicted_cost)}</td></tr>`).join("")
+    }</tbody></table></div>`;
+    document.querySelectorAll("tr.click").forEach(tr => tr.onclick = async () => {
+      status("#histResult", "Loading…");
+      try { renderResult("#histResult", await api("/claims/" + tr.dataset.id)); } catch(e){ status("#histResult", e.message, true); }
+    });
+  }catch(e){ $("#histBody").innerHTML = `<div class="status err">${esc(e.message)}</div>`; }
+}
+$("#refresh").onclick = loadHistory;
+
+// ---------------------------------------------------------------- rendering
+function renderResult(target, r, expected){
+  const f = r.models.fraud, s = r.models.severity, n = r.models.notes;
+  const fColor = f.risk_level === "high" ? "var(--siu)" : f.risk_level === "medium" ? "var(--complex)" : "var(--fast)";
+  const lo = Math.log10(Math.max(100, s.range_low)), hi = Math.log10(Math.max(s.range_high, 200));
+  const scaleMin = 2, scaleMax = 6; // $100 .. $1M on a log scale
+  const posPct = v => Math.min(100, Math.max(0, (Math.log10(Math.max(v, 100)) - scaleMin) / (scaleMax - scaleMin) * 100));
+  const match = expected ? (expected === r.route ? `<div class="small">✓ matches expected routing for this scenario</div>` : `<div class="small">Scenario expected: ${esc(ROUTE_NAMES[expected])}</div>`) : "";
+  const ext = r.extraction ? `
+    <div class="card" style="margin-top:12px"><h2>Document extraction (Amazon Textract)</h2>
+      <div class="kv"><span class="k">Lines read</span><span>${r.extraction.lines}</span>
+      <span class="k">Fields found</span><span>${r.extraction.fields_found.length} – ${esc(r.extraction.fields_found.join(", "))}</span>
+      <span class="k">Avg OCR confidence</span><span>${r.extraction.avg_confidence ?? "–"}%</span>
+      <span class="k">Textract + models</span><span>${r.extraction.textract_ms} ms</span></div>
+      <details><summary>Parsed claim</summary><pre>${esc(JSON.stringify(r.extraction.parsed_claim, null, 2))}</pre></details>
+    </div>` : "";
+  $(target).innerHTML = `
+    <div class="route r-${esc(r.route)}">
+      <div><div class="name">${esc(ROUTE_NAMES[r.route] || r.route)}</div><div class="lbl">${esc(r.route_label)} · priority ${esc(r.priority)}</div>${match}</div>
+      <div class="small" style="text-align:right">${esc(r.claim_number || "")}<br>${esc(r.insured_name || "")}<br>${esc((r.line_of_business || "").replace("_", " "))}</div>
+    </div>
+    <div class="grid" style="grid-template-columns:1fr 1fr;margin-bottom:12px">
+      <div class="card"><h2>Why</h2><ul class="plain">${r.reasons.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
+      <div class="card"><h2>Recommended next actions</h2><ul class="plain">${r.next_actions.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
+    </div>
+    <div class="cols">
+      <div class="card"><h2>Model 1 · Fraud risk</h2>
+        <div class="big" style="color:${fColor}">${pct(f.fraud_score)}</div>
+        <div class="meter"><span style="width:${f.fraud_score * 100}%;background:${fColor}"></span></div>
+        <div class="small muted">Risk level: ${esc(f.risk_level)}</div>
+        ${f.top_factors.length ? `<div style="margin-top:8px" class="small"><b>Top factors</b><ul class="plain">${f.top_factors.map(x => { const m = (x.display || "").match(/^(.*?): (.*) \(typical (.*)\)$/); return m ? `<li>${esc(m[1])}: <b>${esc(m[2])}</b> <span class="muted">(typical ${esc(m[3])})</span></li>` : `<li>${esc(x.factor)}: <b>${esc(x.value)}</b></li>`; }).join("")}</ul></div>` : `<div class="small muted" style="margin-top:8px">No notable risk factors.</div>`}
+      </div>
+      <div class="card"><h2>Model 2 · Severity</h2>
+        <div class="big">${money(s.predicted_cost)}</div>
+        <div class="range"><div class="bar" style="left:${posPct(s.range_low)}%;width:${Math.max(1, posPct(s.range_high) - posPct(s.range_low))}%"></div><div class="pt" style="left:${posPct(s.predicted_cost)}%"></div></div>
+        <div class="small muted" style="display:flex;justify-content:space-between"><span>$100</span><span>$10K</span><span>$1M</span></div>
+        <div class="kv" style="margin-top:8px"><span class="k">Likely range</span><span>${money(s.range_low)} – ${money(s.range_high)}</span><span class="k">Reserve band</span><span>${esc(s.reserve_band)}</span><span class="k">Suggested reserve</span><span>${money(s.suggested_reserve)}</span></div>
+      </div>
+      <div class="card"><h2>Model 3 · Narrative</h2>
+        <div class="big" style="font-size:20px">${esc(n.loss_category.replace(/_/g, " "))}</div>
+        <div class="small muted">confidence ${pct(n.category_confidence)}</div>
+        <div style="margin-top:8px">${Object.entries(n.flags).map(([k, v]) => `<span class="chip ${v >= .5 ? "on" : ""}">${esc(k.replace("_", " "))} ${pct(v)}</span>`).join("")}</div>
+        <div class="small" style="margin-top:8px"><b>Key phrases</b><br>${n.key_phrases.map(p => `<span class="chip">${esc(p)}</span>`).join("") || '<span class="muted">–</span>'}</div>
+      </div>
+    </div>
+    ${ext}
+    <details><summary>Raw API response · model latency ${Object.entries(r.model_latency_ms).map(([k, v]) => k + " " + v + "ms").join(", ")}</summary><pre>${esc(JSON.stringify(r, null, 2))}</pre></details>`;
+}
+
+// ---------------------------------------------------------------- boot
+(async () => {
+  try { API = (await (await fetch("config.json", {cache: "no-store"})).json()).apiUrl; } catch(e){ API = ""; }
+  try { SAMPLES = await (await fetch("samples.json")).json(); } catch(e){ SAMPLES = []; }
+  $("#sampleDocs").innerHTML = SAMPLES.map((s, i) => `<div class="sample"><div><div class="t">${esc(s.id)} · ${esc(s.title)}</div><div class="m">${esc(s.line)} · expected: ${esc(ROUTE_NAMES[s.expected_route])} · <a href="${esc(s.pdf)}" target="_blank">view PDF</a></div></div><button class="btn" data-i="${i}">Run</button></div>`).join("") || '<p class="muted small">No samples found.</p>';
+  document.querySelectorAll(".sample button").forEach(b => b.onclick = () => runSample(+b.dataset.i));
+  SAMPLES.filter(s => s.json).forEach(s => $("#sampleJson").insertAdjacentHTML("beforeend", `<option value="${esc(s.json)}">${esc(s.id)} · ${esc(s.title)}</option>`));
+  if ($("#apikey").value) checkHealth(); else $("#health").innerHTML = '<span class="dot warn"></span>Enter API key';
+})();
+</script>
+</body>
+</html>

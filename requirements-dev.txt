@@ -1,0 +1,8 @@
+# Local tooling: data generation, local training/testing, local demo
+numpy
+pandas
+scikit-learn>=1.2
+joblib
+reportlab
+pypdf
+pillow

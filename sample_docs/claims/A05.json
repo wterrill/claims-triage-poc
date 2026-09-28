@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700104",
+  "policy_number": "PA4431676",
+  "line_of_business": "auto",
+  "loss_type": "vandalism",
+  "insured_name": "Priya Patel",
+  "insured_age": 34,
+  "loss_date": "2026-08-30",
+  "loss_time": "22:00",
+  "report_date": "2026-08-31",
+  "policy_effective_date": "2022-01-20",
+  "loss_location": {
+    "city": "Madison",
+    "state": "WI"
+  },
+  "estimated_loss_amount": 1400,
+  "deductible": 250,
+  "annual_premium": 1390,
+  "coverage_limit": 100000,
+  "prior_claims_3yr": 0,
+  "asset_year": 2019,
+  "police_report_filed": true,
+  "witnesses": false,
+  "injuries_reported": false,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "Unknown party keyed both sides of IV and slashed two tires while parked on street outside insd apartment. Police report filed. Photos received."
+}

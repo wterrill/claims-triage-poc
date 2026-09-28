@@ -1,0 +1,29 @@
+{
+  "claim_number": "CLM-2026-700113",
+  "policy_number": "WC4502947",
+  "line_of_business": "workers_comp",
+  "loss_type": "workplace_injury",
+  "insured_name": "Prairie Logistics LLC",
+  "insured_age": 33,
+  "loss_date": "2026-08-18",
+  "loss_time": "10:30",
+  "report_date": "2026-08-18",
+  "policy_effective_date": "2019-01-01",
+  "loss_location": {
+    "city": "Peoria",
+    "state": "IL"
+  },
+  "estimated_loss_amount": 3500,
+  "deductible": 0,
+  "annual_premium": 48000,
+  "coverage_limit": 1000000,
+  "prior_claims_3yr": 1,
+  "asset_year": 2021,
+  "police_report_filed": false,
+  "witnesses": true,
+  "injuries_reported": true,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "EE was lifting boxes from pallet and felt sharp pain in lower back. Reported to supervisor same day, seen at occupational clinic, light duty 1 week.",
+  "claimant_name": "Luis Ramirez"
+}

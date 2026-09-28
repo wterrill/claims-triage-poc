@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700112",
+  "policy_number": "HO4495028",
+  "line_of_business": "homeowners",
+  "loss_type": "water_damage",
+  "insured_name": "Jennifer Nguyen",
+  "insured_age": 39,
+  "loss_date": "2026-05-07",
+  "loss_time": "04:30",
+  "report_date": "2026-05-08",
+  "policy_effective_date": "2020-07-15",
+  "loss_location": {
+    "city": "Cedar Rapids",
+    "state": "IA"
+  },
+  "estimated_loss_amount": 11200,
+  "deductible": 1000,
+  "annual_premium": 1690,
+  "coverage_limit": 350000,
+  "prior_claims_3yr": 0,
+  "asset_year": 2006,
+  "police_report_filed": false,
+  "witnesses": false,
+  "injuries_reported": false,
+  "attorney_involved": false,
+  "coverage_change_last_90_days": false,
+  "description": "Sump pump failed during heavy rain, finished basement flooded approx 3 inches. Carpet, drywall and furniture damaged. Verify sump endorsement on policy."
+}

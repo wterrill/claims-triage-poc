@@ -1,0 +1,21 @@
+.venv/
+build/
+cdk.out/
+infra/cdk.out/
+__pycache__/
+*.pyc
+.DS_Store
+.venv-sk12/
+
+# local secrets / env
+.env
+.env.*
+*credentials*.csv
+*.pem
+# editors
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json

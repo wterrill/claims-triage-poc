@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700101",
+  "policy_number": "PA4407919",
+  "line_of_business": "auto",
+  "loss_type": "collision",
+  "insured_name": "Marcus Delgado",
+  "insured_age": 38,
+  "loss_date": "2026-07-02",
+  "loss_time": "17:55",
+  "report_date": "2026-07-03",
+  "policy_effective_date": "2021-06-15",
+  "loss_location": {
+    "city": "Joliet",
+    "state": "IL"
+  },
+  "estimated_loss_amount": 12500,
+  "deductible": 500,
+  "annual_premium": 1610,
+  "coverage_limit": 250000,
+  "prior_claims_3yr": 0,
+  "asset_year": 2018,
+  "police_report_filed": true,
+  "witnesses": true,
+  "injuries_reported": true,
+  "attorney_involved": true,
+  "coverage_change_last_90_days": false,
+  "description": "IV stopped at red light on Larkin Ave when CV failed to stop and struck IV in rear at approx 35 mph. Insd transported by ambulance w/ neck and back pain, now treating w/ chiropractor. Received LOR from atty office on 7/10. Police report on file."
+}

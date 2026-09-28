@@ -1,0 +1,28 @@
+{
+  "claim_number": "CLM-2026-700106",
+  "policy_number": "PA4447514",
+  "line_of_business": "auto",
+  "loss_type": "collision",
+  "insured_name": "Kyle Brandt",
+  "insured_age": 24,
+  "loss_date": "2026-08-02",
+  "loss_time": "03:10",
+  "report_date": "2026-08-24",
+  "policy_effective_date": "2026-06-25",
+  "loss_location": {
+    "city": "Toledo",
+    "state": "OH"
+  },
+  "estimated_loss_amount": 27500,
+  "deductible": 500,
+  "annual_premium": 2150,
+  "coverage_limit": 50000,
+  "prior_claims_3yr": 2,
+  "asset_year": 2017,
+  "police_report_filed": false,
+  "witnesses": false,
+  "injuries_reported": true,
+  "attorney_involved": true,
+  "coverage_change_last_90_days": true,
+  "description": "Friend was driving at time of loss, not listed on policy. Vehicle left roadway and struck tree. No police report. Driver now claiming back injury and has already spoken to a lawyer. Insd vague on details."
+}

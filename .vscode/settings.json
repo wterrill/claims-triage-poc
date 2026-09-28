@@ -1,0 +1,28 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.extraPaths": [
+    "ml/src",
+    "lambda/orchestrator",
+    "data",
+    "tests"
+  ],
+  "python.envFile": "${workspaceFolder}/.env",
+  "editor.rulers": [
+    110
+  ],
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/cdk.out": true
+  },
+  "search.exclude": {
+    "build/**": true,
+    ".venv*/**": true,
+    "sample_docs/fnol/**": true
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": false
+  },
+  "ruff.lineLength": 110
+}
