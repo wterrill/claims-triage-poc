@@ -7,7 +7,7 @@
       .ml{fill:#eef5ff;stroke:#2f6fb3}
       .t{font-weight:700;fill:#1b2430}
       .s{fill:#5d6b7c;font-size:11.5px}
-      .ln{stroke:#4a5a6e;stroke-width:1.4;fill:none;marker-end:url(#a)}
+      .ln{stroke:#4a5a6e;stroke-width:1.4;fill:none;stroke-linejoin:round;marker-end:url(#a)}
       .dash{stroke-dasharray:5 4}
       .grp{fill:none;stroke:#8fa0b3;stroke-dasharray:6 5;rx:14}
       .gl{fill:#5d6b7c;font-size:12px;font-weight:700;letter-spacing:.5px}
@@ -39,18 +39,18 @@
 
   <rect class="box" x="700" y="430" width="336" height="80" style="fill:#f1f4f8"/><text class="t" x="716" y="454">Training (offline)</text><text class="s" x="716" y="474">SageMaker training jobs · managed scikit-learn container</text><text class="s" x="716" y="492">5,000 synthetic claims in S3 → model.tar.gz artifacts</text>
 
-  <!-- arrows -->
-  <path class="ln" d="M194,112 C222,112 222,190 250,190"/>
-  <path class="ln" d="M194,202 L250,202"/>
-  <path class="ln" d="M194,292 C330,292 400,300 460,322"/>
-  <path class="ln" d="M410,202 L460,202"/>
-  <path class="ln" d="M630,176 L700,164"/>
-  <path class="ln" d="M630,202 L700,246"/>
-  <path class="ln" d="M630,222 L700,326"/>
-  <path class="ln" d="M545,244 L545,300"/>
-  <path class="ln" d="M460,340 L410,332"/>
-  <path class="ln" d="M620,244 C665,300 665,430 632,430"/>
-  <path class="ln dash" d="M410,430 C440,430 440,244 480,244"/>
-  <path class="ln dash" d="M868,430 L868,362"/>
+  <!-- arrows (straight, right-angled) -->
+  <path class="ln" d="M194,112 H236 V180 H250"/>
+  <path class="ln" d="M194,202 H250"/>
+  <path class="ln" d="M194,280 H480 V300"/>
+  <path class="ln" d="M410,202 H460"/>
+  <path class="ln" d="M630,202 H665 V164 H700"/>
+  <path class="ln" d="M630,202 H665 V246 H700"/>
+  <path class="ln" d="M630,202 H665 V328 H700"/>
+  <path class="ln" d="M545,244 V300"/>
+  <path class="ln" d="M460,330 H410"/>
+  <path class="ln" d="M630,232 H650 V430 H630"/>
+  <path class="ln dash" d="M410,430 H435 V232 H460"/>
+  <path class="ln dash" d="M868,430 V362"/>
   <text class="s" x="872" y="410">deploys artifacts</text>
 </svg>
